@@ -1,10 +1,11 @@
+#!/usr/bin/env python3.8
 import cv2
 import easyocr
 import matplotlib.pyplot as plt
 import numpy as np
 
 # read image
-image_path = '/home/phillip/Desktop/todays_tutorial/30_text_detection_easyocr/code/data/test2.png'
+image_path = 'C:\\Devel\\Experiment\\text-detection-python-easyocr\\data\\test4.png'
 
 img = cv2.imread(image_path)
 
@@ -17,13 +18,28 @@ text_ = reader.readtext(img)
 threshold = 0.25
 # draw bbox and text
 for t_, t in enumerate(text_):
-    print(t)
+    if(t[2] > 0.9):
+        c1 = t[0][2]
+        c2 = t[0][0]
+        l = c1[0]- c2[0]
+        d = c1[1]- c2[1]
+        area = l *d
+        # print(c1)
+        # print(c2)
+        # print(d)
+        # print(l)
+        print(area)
+        print(t[1])
+        
+        
+    
+
 
     bbox, text, score = t
 
-    if score > threshold:
-        cv2.rectangle(img, bbox[0], bbox[2], (0, 255, 0), 5)
-        cv2.putText(img, text, bbox[0], cv2.FONT_HERSHEY_COMPLEX, 0.65, (255, 0, 0), 2)
+#     if score > threshold:
+#         cv2.rectangle(img, bbox[0], bbox[2], (0, 255, 0), 5)
+#         cv2.putText(img, text, bbox[0], cv2.FONT_HERSHEY_COMPLEX, 0.65, (255, 0, 0), 2)
 
-plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
-plt.show()
+# plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+# plt.show()
