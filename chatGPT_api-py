@@ -1,0 +1,21 @@
+import openai
+
+# Imposta la tua chiave API di GPT-3
+openai.api_key = ''
+
+# Definisci una serie di parole o frasi relative al libro
+input_text = "date queste parole: OSCAR  MODERNI CULT Isaac Asimov IO, ROBOT. riesci a torvarmi titolo e autore del libro?"
+
+# Chiedi a GPT-3 di completare la frase con un titolo e un autore
+response = openai.Completion.create(
+  engine="text-davinci-002",
+  prompt=input_text,
+  temperature=0.7,
+  max_tokens=100
+)
+
+# Estrai la risposta generata da GPT-3
+output_text = response['choices'][0]['text']
+
+# Stampa la risposta
+print("Risposta generata da GPT-3:", output_text)

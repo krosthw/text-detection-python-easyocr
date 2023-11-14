@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # read image
-image_path = 'C:\\Devel\\Experiment\\text-detection-python-easyocr\\data\\test4.png'
+image_path = 'C:\\Devel\\Experiment\\text-detection-python-easyocr\\data\\test5.png'
 
 img = cv2.imread(image_path)
 
@@ -18,22 +18,14 @@ text_ = reader.readtext(img)
 threshold = 0.25
 # draw bbox and text
 for t_, t in enumerate(text_):
-    if(t[2] > 0.9):
+    if(t[2] > 0.2):
         c1 = t[0][2]
         c2 = t[0][0]
         l = c1[0]- c2[0]
         d = c1[1]- c2[1]
         area = l *d
-        # print(c1)
-        # print(c2)
-        # print(d)
-        # print(l)
-        print(area)
+        #print(area)
         print(t[1])
-        
-        
-    
-
 
     bbox, text, score = t
 
