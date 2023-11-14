@@ -1,7 +1,7 @@
 import openai
-
+import config
 # Imposta la tua chiave API di GPT-3
-openai.api_key = ''
+openai.api_key = config.api_key
 
 # Definisci una serie di parole o frasi relative al libro
 input_text = "date queste parole: OSCAR  MODERNI CULT Isaac Asimov IO, ROBOT. riesci a torvarmi titolo e autore del libro?"
