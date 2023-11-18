@@ -53,7 +53,10 @@ with open("./data/book-dataset/Task1/book30-listing-"+stringTest+".csv", newline
             if(full is False):
                 path = "./data/title30cat/224x224/" + row['FILENAME']
             else:
-                path = "./data/title30cat/full/" + row['FILENAME']
+                if(test is True):
+                    path = "./data/title30cat/full/" + row['FILENAME']
+                else:
+                    path = "./data/title30cat/full_train/" + row['FILENAME']
             print(path)
             res = calc2(path,readerEasyocr)
             scoreTitle = 0
