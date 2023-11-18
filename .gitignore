@@ -1,2 +1,5 @@
 .env
 config.py
+**/book-covers/
+**/dataset/
+data/
